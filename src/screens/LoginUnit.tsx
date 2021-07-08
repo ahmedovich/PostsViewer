@@ -6,9 +6,13 @@ import {
   TouchableOpacity,
   Text,
 } from 'react-native';
+import CheckBox from '@react-native-community/checkbox';
 import {ScreenHeight, ScreenWidth} from 'react-native-elements/dist/helpers';
 
-interface SignUpProps {}
+import {Center} from '../components/center/Center';
+import {Logo} from '../components/logo/Logo';
+
+interface LoginUnitProps {}
 
 function LoginInputs() {
   return (
@@ -28,11 +32,27 @@ function LoginInputs() {
   );
 }
 
+function SaveLogin() {
+  return (
+    <View style={styles.saveLogin}>
+      <View style={styles.checkBoxView}>
+        <CheckBox onCheckColor="blue" style={styles.checkBox} />
+        <Text style={styles.checkText}>Remember me</Text>
+      </View>
+      <View style={styles.checkTextView}>
+        <TouchableOpacity>
+          <Text style={styles.forgetText}>Forget password</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+}
+
 function SignIn() {
   return (
     <View style={styles.buttonsContainer}>
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Sign Un</Text>
+        <Text style={styles.buttonText}>Sign in</Text>
       </TouchableOpacity>
     </View>
   );
@@ -41,22 +61,26 @@ function SignIn() {
 function SignUp() {
   return (
     <View style={styles.signUpView}>
-      <Text style={styles.signUpText}>Already have an account yet?</Text>
+      <Text style={styles.signUpText}>Don't you have an account yet?</Text>
       <View style={styles.buttonsContainer}>
         <TouchableOpacity>
-          <Text style={styles.signUpButton}>Sign Ip</Text>
+          <Text style={styles.signUpButton}>Sign Up</Text>
         </TouchableOpacity>
       </View>
     </View>
   );
 }
 
-export const SignUp: React.FC<SignUpProps> = ({}) => {
+export const LoginUnit: React.FC<LoginUnitProps> = ({}) => {
   return (
-    <View style={styles.container}>
-      <LoginInputs />
-      <SignIn />
-      <SignUp />
+    <View>
+      <Logo />
+      <Center>
+        <LoginInputs />
+        <SaveLogin />
+        <SignIn />
+        <SignUp />
+      </Center>
     </View>
   );
 };
