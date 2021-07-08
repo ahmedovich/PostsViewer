@@ -4,7 +4,7 @@ import {
   DefaultTheme,
   DarkTheme,
 } from '@react-navigation/native';
-import {StyleSheet, Text, useColorScheme} from 'react-native';
+import {useColorScheme} from 'react-native';
 import {ActivityIndicator} from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -52,17 +52,3 @@ export const Routes: React.FC<RoutesProps> = ({}) => {
     </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#3b4252',
-  },
-  signupTextcont: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

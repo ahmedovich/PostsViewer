@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {AuthProvider} from '../features/login/components/AuthProvider';
 import {Routes} from './Routes';
 

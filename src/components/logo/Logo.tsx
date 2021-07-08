@@ -7,7 +7,7 @@ export const Logo: React.FC<LogoProps> = ({}) => {
   return (
     <View style={styles.container}>
       <Image style={styles.logo} source={require('../Images/blogLogo.png')} />
-      <Text style={styles.logoText}>Welcome to the App</Text>
+      <Text style={styles.logoText}>Welcome to PostsViewer</Text>
     </View>
   );
 };
@@ -28,5 +28,6 @@ const styles = StyleSheet.create({
     color: 'rgba(225, 225, 255, 0.7)',
     justifyContent: 'center',
     alignItems: 'center',
+    fontWeight: '500',
   },
 });
