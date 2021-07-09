@@ -1,7 +1,6 @@
 import React, {useContext} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {useNavigation} from '@react-navigation/native';
-
 import {
   View,
   StyleSheet,
@@ -12,34 +11,47 @@ import {
 import CheckBox from '@react-native-community/checkbox';
 import {ScreenHeight, ScreenWidth} from 'react-native-elements/dist/helpers';
 
+import {Provider, useDispatch} from 'react-redux';
+import {Store} from '../../../redux/store';
+
 import {Logo} from '../../../components/logo/Logo';
 import {Center} from '../../../components/center/Center';
 import {AuthParamList, AuthNavProps} from '../paramLists/AuthParamList';
 import {AuthContext} from './AuthProvider';
+import {
+  setName,
+  setPassword,
+  deleteName,
+  deletePassword,
+} from '../../../redux/actions';
 
 interface AuthStackProps {}
 
 const Stack = createStackNavigator<AuthParamList>();
 
 function LoginInputs({navigation, route}: AuthNavProps<'LoginInputs'>) {
+  const dispatch = useDispatch();
   return (
     <View>
       <TextInput
         style={styles.inputBox}
-        placeholder="Email"
+        placeholder="UserName"
         placeholderTextColor="#434c5e"
+        onChangeText={value => dispatch(setName(value))}
       />
       <TextInput
         style={styles.inputBox}
         placeholder="Password"
         secureTextEntry={true}
         placeholderTextColor="#434c5e"
+        onChangeText={value => dispatch(setPassword(value))}
       />
     </View>
   );
 }
 
 function SaveLogin({navigation, route}: AuthNavProps<'SaveLogin'>) {
+  const dispatch = useDispatch();
   return (
     <View style={styles.saveLogin}>
       <View style={styles.checkBoxView}>
@@ -47,7 +59,11 @@ function SaveLogin({navigation, route}: AuthNavProps<'SaveLogin'>) {
         <Text style={styles.checkText}>Remember me</Text>
       </View>
       <View style={styles.checkTextView}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            dispatch(deleteName(''));
+            dispatch(deletePassword(''));
+          }}>
           <Text style={styles.forgetText}>Forget password</Text>
         </TouchableOpacity>
       </View>
@@ -120,22 +136,24 @@ function Register({navigation, route}: AuthNavProps<'Register'>) {
 
 export const AuthStack: React.FC<AuthStackProps> = ({}) => {
   return (
-    <Stack.Navigator
-      screenOptions={{
-        header: () => null,
-      }}
-      initialRouteName="Login">
-      <Stack.Screen
-        name="Login"
-        options={{headerTitle: 'Sign in'}}
-        component={Login}
-      />
-      <Stack.Screen
-        name="Register"
-        options={{headerTitle: 'Sign Up'}}
-        component={Register}
-      />
-    </Stack.Navigator>
+    <Provider store={Store}>
+      <Stack.Navigator
+        screenOptions={{
+          header: () => null,
+        }}
+        initialRouteName="Login">
+        <Stack.Screen
+          name="Login"
+          options={{headerTitle: 'Sign in'}}
+          component={Login}
+        />
+        <Stack.Screen
+          name="Register"
+          options={{headerTitle: 'Sign Up'}}
+          component={Register}
+        />
+      </Stack.Navigator>
+    </Provider>
   );
 };
 

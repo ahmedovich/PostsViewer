@@ -5,6 +5,10 @@ import {Text, Button, View} from 'react-native';
 import {AuthContext} from './AuthProvider';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Zocial from 'react-native-vector-icons/Zocial';
+
+import {HomeStack} from '../../home/components/HomeStack';
+import {StyleSheet} from 'react-native';
+
 interface AppTabsProps {}
 
 const Tabs = createBottomTabNavigator<AppParamList>();
@@ -22,7 +26,7 @@ function Home() {
 function Search() {
   return (
     <View>
-      <Text>search</Text>
+      <Text style={styles.signUpButton}>search</Text>
     </View>
   );
 }
@@ -48,8 +52,17 @@ export const AppTabs: React.FC<AppTabsProps> = ({}) => {
         activeTintColor: 'tomato',
         inactiveTintColor: 'gray',
       }}>
-      <Tabs.Screen name="Home" component={Home} />
+      <Tabs.Screen name="Home" component={HomeStack} />
       <Tabs.Screen name="Search" component={Search} />
     </Tabs.Navigator>
   );
 };
+
+//Remove it later
+const styles = StyleSheet.create({
+  signUpButton: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#ff004c',
+  },
+});

@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import {useSelector, useDispatch} from 'react-redux';
+import {setName, setPassword} from '../../../redux/actions';
+
 type User = null | {username: string};
 
 export const AuthContext = React.createContext<{

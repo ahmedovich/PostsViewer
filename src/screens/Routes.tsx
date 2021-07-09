@@ -8,8 +8,8 @@ import {useColorScheme} from 'react-native';
 import {ActivityIndicator} from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// import {Login} from './Login';
-// import {Register} from './Register';
+import {Provider} from 'react-redux';
+import {Store} from '../redux/store';
 
 import {Center} from '../components/center/Center';
 import {AuthContext} from '../features/login/components/AuthProvider';
@@ -47,8 +47,10 @@ export const Routes: React.FC<RoutesProps> = ({}) => {
   }
 
   return (
-    <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
-      {user ? <AppTabs /> : <AuthStack />}
-    </NavigationContainer>
+    <Provider store={Store}>
+      <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
+        {user ? <AppTabs /> : <AuthStack />}
+      </NavigationContainer>
+    </Provider>
   );
 };
