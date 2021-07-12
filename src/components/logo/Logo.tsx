@@ -6,7 +6,7 @@ interface LogoProps {}
 export const Logo: React.FC<LogoProps> = ({}) => {
   return (
     <View style={styles.container}>
-      <Image style={styles.logo} source={require('../Images/blogLogo.png')} />
+      <Image style={styles.logo} source={require('../Images/loginLogo.png')} />
       <Text style={styles.logoText}>Welcome to PostsViewer</Text>
     </View>
   );
