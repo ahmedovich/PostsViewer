@@ -1,12 +1,12 @@
 import React, {useContext} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {AppParamList} from '../paramLists/HomeParamList';
+import {AppParamList} from '../features/login/paramLists/HomeParamList';
 import {Text, Button, View} from 'react-native';
 import {AuthContext} from './AuthProvider';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Zocial from 'react-native-vector-icons/Zocial';
 
-import {HomeStack} from '../../home/components/HomeStack';
+import {HomeStack} from './HomeStack';
 import {StyleSheet} from 'react-native';
 
 interface AppTabsProps {}

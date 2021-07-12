@@ -11,26 +11,23 @@ import {
 import CheckBox from '@react-native-community/checkbox';
 import {ScreenHeight, ScreenWidth} from 'react-native-elements/dist/helpers';
 
-import {Provider, useDispatch} from 'react-redux';
-import {Store} from '../../../redux/store';
+// import {Provider, useDispatch} from 'react-redux';
+// import {store} from '../../../redux/index';
 
-import {Logo} from '../../../components/logo/Logo';
-import {Center} from '../../../components/center/Center';
-import {AuthParamList, AuthNavProps} from '../paramLists/AuthParamList';
-import {AuthContext} from './AuthProvider';
+import {Logo} from '../components/logo/Logo';
+import {Center} from '../components/center/Center';
 import {
-  setName,
-  setPassword,
-  deleteName,
-  deletePassword,
-} from '../../../redux/actions';
+  AuthParamList,
+  AuthNavProps,
+} from '../features/login/paramLists/AuthParamList';
+import {AuthContext} from './AuthProvider';
 
 interface AuthStackProps {}
 
 const Stack = createStackNavigator<AuthParamList>();
 
 function LoginInputs({navigation, route}: AuthNavProps<'LoginInputs'>) {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   return (
     <View>
       <TextInput
@@ -51,8 +48,7 @@ function LoginInputs({navigation, route}: AuthNavProps<'LoginInputs'>) {
 }
 
 function SaveLogin({navigation, route}: AuthNavProps<'SaveLogin'>) {
-  const dispatch = useDispatch();
-  return (
+r  return (
     <View style={styles.saveLogin}>
       <View style={styles.checkBoxView}>
         <CheckBox onCheckColor="blue" style={styles.checkBox} />
@@ -61,8 +57,8 @@ function SaveLogin({navigation, route}: AuthNavProps<'SaveLogin'>) {
       <View style={styles.checkTextView}>
         <TouchableOpacity
           onPress={() => {
-            dispatch(deleteName(''));
-            dispatch(deletePassword(''));
+            // dispatch(deleteName(''));
+            // dispatch(deletePassword(''));
           }}>
           <Text style={styles.forgetText}>Forget password</Text>
         </TouchableOpacity>
@@ -136,24 +132,24 @@ function Register({navigation, route}: AuthNavProps<'Register'>) {
 
 export const AuthStack: React.FC<AuthStackProps> = ({}) => {
   return (
-    <Provider store={Store}>
-      <Stack.Navigator
-        screenOptions={{
-          header: () => null,
-        }}
-        initialRouteName="Login">
-        <Stack.Screen
-          name="Login"
-          options={{headerTitle: 'Sign in'}}
-          component={Login}
-        />
-        <Stack.Screen
-          name="Register"
-          options={{headerTitle: 'Sign Up'}}
-          component={Register}
-        />
-      </Stack.Navigator>
-    </Provider>
+    // <Provider store={store}>
+    <Stack.Navigator
+      screenOptions={{
+        header: () => null,
+      }}
+      initialRouteName="Login">
+      <Stack.Screen
+        name="Login"
+        options={{headerTitle: 'Sign in'}}
+        component={Login}
+      />
+      <Stack.Screen
+        name="Register"
+        options={{headerTitle: 'Sign Up'}}
+        component={Register}
+      />
+    </Stack.Navigator>
+    // </Provider>
   );
 };
 
