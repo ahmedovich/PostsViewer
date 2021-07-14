@@ -1,39 +1,71 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Button, FlatList, Text, TouchableOpacity} from 'react-native';
+import {ActivityIndicator} from 'react-native-paper';
+import {StyleSheet, FlatList, Text, TouchableOpacity, View} from 'react-native';
+import {ScreenWidth} from 'react-native-elements/dist/helpers';
+
+import {AuthContext} from '../screens/AuthProvider';
 import {Center} from '../components/center/Center';
 
-import {AuthContext} from './AuthProvider';
-import {StyleSheet} from 'react-native';
-
-import faker from 'faker';
+import {PostsParamList} from '../features/login/paramLists/PostsParamList';
 
 interface HomeStackProps {}
 
-const Stack = createStackNavigator();
+export interface List {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
 
-function Feed() {
-  const [data, setData] = useState([]);
-  const [isLoading, setLoading] = useState(true);
+const Stack = createStackNavigator<PostsParamList>();
 
-  // useEffect() = async () => {
-  //   const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-  //   const json = await response.json();
-  //   this.setData({data: json});
-  // };
+const Feed = () => {
+  const [data, setData] = React.useState([]);
+  const [loading, setLoading] = useState(true);
+
+  React.useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/posts')
+      .then(res => res.json())
+      .then(response => {
+        setData(response);
+        setLoading(false);
+      })
+      .catch(function (error) {
+        console.log(
+          'There has been a problem with your fetch operation: ' +
+            error.message,
+        );
+      });
+  }, []);
+
+  if (loading) {
+    return (
+      <Center>
+        <ActivityIndicator />
+      </Center>
+    );
+  }
 
   return (
     <Center>
       <FlatList
-        renderItem={({item}) => {
-          return <Button title={item} onPress={() => {}} />;
-        }}
-        keyExtractor={(product, idx) => product + idx}
-        data={Array.from(Array(50), () => faker.commerce.product())}
+        data={data}
+        style={styles.postContainer}
+        renderItem={({item}) => (
+          <View>
+            <View key={item.id} style={styles.postBox}>
+              <Text style={styles.postsText}>{item.title}</Text>
+              <View key={item.id} style={styles.commentBox}>
+                <Text style={styles.commentsText}>{item.body}</Text>
+              </View>
+            </View>
+          </View>
+        )}
       />
     </Center>
   );
-}
+};
 
 export const HomeStack: React.FC<HomeStackProps> = ({}) => {
   const {logout} = useContext(AuthContext);
@@ -64,5 +96,29 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '500',
     color: '#ff004c',
+  },
+  postContainer: {
+    width: ScreenWidth,
+    margin: 10,
+  },
+  postBox: {
+    margin: 7,
+    backgroundColor: '#303236',
+    padding: 5,
+    borderRadius: 5,
+  },
+  postsText: {
+    color: '#e8d3bb',
+    fontSize: 18,
+  },
+  commentBox: {
+    margin: 3,
+    backgroundColor: 'black',
+    padding: 5,
+    borderRadius: 5,
+  },
+  commentsText: {
+    color: '#e8d3bb',
+    fontSize: 16,
   },
 });

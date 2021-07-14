@@ -4,7 +4,7 @@ import {AppParamList} from '../features/login/paramLists/HomeParamList';
 import {Text, Button, View} from 'react-native';
 import {AuthContext} from './AuthProvider';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Zocial from 'react-native-vector-icons/Zocial';
+// import Zocial from 'react-native-vector-icons/Zocial';
 
 import {HomeStack} from './HomeStack';
 import {StyleSheet} from 'react-native';
@@ -23,13 +23,13 @@ function Home() {
   );
 }
 
-function Search() {
-  return (
-    <View>
-      <Text style={styles.signUpButton}>search</Text>
-    </View>
-  );
-}
+// function Search() {
+//   return (
+//     <View>
+//       <Text style={styles.signUpButton}>search</Text>
+//     </View>
+//   );
+// }
 
 export const AppTabs: React.FC<AppTabsProps> = ({}) => {
   return (
@@ -40,8 +40,8 @@ export const AppTabs: React.FC<AppTabsProps> = ({}) => {
 
           if (route.name === 'Home') {
             iconName = focused ? 'home' : 'home-outline';
-          } else if (route.name === 'Search') {
-            return <Zocial name={'angellist'} size={size} color={color} />;
+            // } else if (route.name === 'Search') {
+            //   return <Zocial name={'angellist'} size={size} color={color} />;
           }
 
           // You can return any component that you like here!
@@ -53,7 +53,7 @@ export const AppTabs: React.FC<AppTabsProps> = ({}) => {
         inactiveTintColor: 'gray',
       }}>
       <Tabs.Screen name="Home" component={HomeStack} />
-      <Tabs.Screen name="Search" component={Search} />
+      {/* <Tabs.Screen name="Search" component={Search} /> */}
     </Tabs.Navigator>
   );
 };

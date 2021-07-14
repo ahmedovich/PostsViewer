@@ -1,6 +1,5 @@
 import React, {useContext} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {useNavigation} from '@react-navigation/native';
 import {
   View,
   StyleSheet,
@@ -48,7 +47,7 @@ function LoginInputs({navigation, route}: AuthNavProps<'LoginInputs'>) {
 }
 
 function SaveLogin({navigation, route}: AuthNavProps<'SaveLogin'>) {
-r  return (
+  return (
     <View style={styles.saveLogin}>
       <View style={styles.checkBoxView}>
         <CheckBox onCheckColor="blue" style={styles.checkBox} />
