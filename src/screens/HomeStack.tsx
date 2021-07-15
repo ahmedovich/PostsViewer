@@ -55,7 +55,10 @@ const Feed = () => {
         renderItem={({item}) => (
           <View>
             <View key={item.id} style={styles.postBox}>
-              <Text style={styles.postsText}>{item.title}</Text>
+              <Text style={styles.postsText}>
+                {item.title}
+                {':'}
+              </Text>
               <View key={item.id} style={styles.commentBox}>
                 <Text style={styles.commentsText}>{item.body}</Text>
               </View>
@@ -110,15 +113,18 @@ const styles = StyleSheet.create({
   postsText: {
     color: '#e8d3bb',
     fontSize: 18,
+    fontFamily: 'bold',
   },
   commentBox: {
     margin: 3,
     backgroundColor: 'black',
     padding: 5,
     borderRadius: 5,
+    elevation: 15,
   },
   commentsText: {
-    color: '#e8d3bb',
+    color: 'white',
     fontSize: 16,
+    fontStyle: 'italic',
   },
 });
