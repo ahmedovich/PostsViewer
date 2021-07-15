@@ -1,18 +1,13 @@
 import React from 'react';
-import {AuthProvider} from './AuthProvider';
 import {Routes} from './Routes';
-
-// import {Provider} from 'react-redux';
-// import {Store} from '../redux/store';
+import {AuthContext} from './context';
 
 interface ProvidersProps {}
 
 export const Providers: React.FC<ProvidersProps> = ({}) => {
   return (
-    // <Provider store={Store}>
-    <AuthProvider>
+    <AuthContext.Provider value={AuthContext}>
       <Routes />
-    </AuthProvider>
-    // </Provider>
+    </AuthContext.Provider>
   );
 };
