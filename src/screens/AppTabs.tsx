@@ -2,23 +2,24 @@ import React, {useContext} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {AppParamList} from '../features/login/paramLists/HomeParamList';
 import {Text, Button, View} from 'react-native';
-import {AuthContext} from './AuthProvider';
+// import {AuthContext} from './AuthProvider';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 // import Zocial from 'react-native-vector-icons/Zocial';
 
 import {HomeStack} from './HomeStack';
 import {StyleSheet} from 'react-native';
+import {AuthContext} from '../screens/context';
 
 interface AppTabsProps {}
 
 const Tabs = createBottomTabNavigator<AppParamList>();
 
 function Home() {
-  const {logout} = useContext(AuthContext);
+  const {signOut} = useContext(AuthContext);
   return (
     <View>
       <Text>home</Text>
-      <Button title="Logout" onPress={() => logout()} />
+      <Button title="Logout" onPress={() => signOut()} />
     </View>
   );
 }

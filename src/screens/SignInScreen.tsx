@@ -17,7 +17,7 @@ import {
   AuthNavProps,
 } from '../features/login/paramLists/AuthParamList';
 import Users from '../model/users';
-import {AuthContext} from './AuthProvider';
+import {AuthContext} from './context';
 
 const SignInScreen = ({navigation}) => {
   const [data, setData] = React.useState({
@@ -80,7 +80,7 @@ const SignInScreen = ({navigation}) => {
   };
 
   const loginHandle = (userName: string, password: string) => {
-    const foundUser = Users.filter(item => {
+    const userFound = Users.filter(item => {
       return userName === item.username && password === item.password;
     });
 
@@ -88,18 +88,18 @@ const SignInScreen = ({navigation}) => {
       Alert.alert(
         'Wrong Input!',
         'Username or password field cannot be empty.',
-        [{text: 'Okay'}],
+        [{text: 'Roger that!'}],
       );
       return;
     }
 
-    if (foundUser.length === 0) {
+    if (userFound.length === 0) {
       Alert.alert('Invalid User!', 'Username or password is incorrect.', [
-        {text: 'Okay'},
+        {text: 'Roger that!'},
       ]);
       return;
     }
-    signIn(foundUser);
+    signIn(userFound);
   };
 
   return (

@@ -16,51 +16,51 @@ import {Center} from '../components/center/Center';
 
 interface RoutesProps {}
 
-// interface UserModel {
-//   userName: string;
-//   isLoading: boolean;
-//   userToken: string;
-// }
+interface UserModel {
+  userName: string;
+  isLoading: boolean;
+  userToken: string;
+}
 
-// interface RetrieveTokenAction {
-//   type: 'RETRIEVE_TOKEN';
-//   payload: UserModel;
-// }
+interface RetrieveTokenAction {
+  type: 'RETRIEVE_TOKEN';
+  payload: UserModel;
+}
 
-// interface LoginAction {
-//   type: 'LOGIN';
-//   payload: UserModel;
-// }
+interface LoginAction {
+  type: 'LOGIN';
+  payload: UserModel;
+}
 
-// interface LogOutAction {
-//   type: 'LOGOUT';
-//   payload: UserModel;
-// }
+interface LogOutAction {
+  type: 'LOGOUT';
+  payload: UserModel;
+}
 
-// interface RegisterAction {
-//   type: 'REGISTER';
-//   payload: UserModel;
-// }
+interface RegisterAction {
+  type: 'REGISTER';
+  payload: UserModel;
+}
 
-// type UserAction =
-//   | RetrieveTokenAction
-//   | LoginAction
-//   | LogOutAction
-//   | RegisterAction;
+type UserAction =
+  | RetrieveTokenAction
+  | LoginAction
+  | LogOutAction
+  | RegisterAction;
 
-// type UserState = {
-//   user: UserModel;
-//   isLoading: boolean;
-//   userToken: string | undefined;
-// };
+type UserState = {
+  user: UserModel;
+  isLoading: boolean;
+  userToken: string | undefined;
+};
 
 export const Routes: React.FC<RoutesProps> = ({}) => {
   const scheme = useColorScheme();
 
   // const prevState = {
-  //   isLoading: true,
-  //   userName: action,
-  //   userToken: any,
+  //   userName: action.id,
+  //   userToken: action.token,
+  //   isLoading: false,
   // };
 
   const initialLoginState = {
@@ -108,9 +108,9 @@ export const Routes: React.FC<RoutesProps> = ({}) => {
 
   const AuthContext = React.useMemo(
     () => ({
-      signIn: async foundUser => {
-        const userToken = String(foundUser[0].userToken);
-        const userName = foundUser[0].username;
+      signIn: async user => {
+        const userToken = String(user[0].userToken);
+        const userName = user[0].username;
 
         try {
           await AsyncStorage.setItem('userToken', userToken);
@@ -156,7 +156,7 @@ export const Routes: React.FC<RoutesProps> = ({}) => {
 
   return (
     <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
-      {loginState.userToken ? <AppTabs /> : <AuthStack />}
+      {loginState.userToken !== null ? <AppTabs /> : <AuthStack />}
     </NavigationContainer>
   );
 };

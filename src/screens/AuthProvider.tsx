@@ -8,12 +8,12 @@ type User = null | {username: string};
 
 export const AuthContext = React.createContext<{
   user: User;
-  login: () => void;
-  logout: () => void;
+  signIn: () => void;
+  signOut: () => void;
 }>({
   user: null,
-  login: () => {},
-  logout: () => {},
+  signIn: () => {},
+  signOut: () => {},
 });
 
 interface AuthProviderProps {}

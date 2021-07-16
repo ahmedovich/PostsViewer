@@ -9,7 +9,7 @@ interface AuthStackProps {}
 
 const Stack = createStackNavigator<AuthParamList>();
 
-export const AuthStack: React.FC<AuthStackProps> = ({navigation}) => {
+export const AuthStack: React.FC<AuthStackProps> = ({}) => {
   return (
     // <Provider store={store}>
     <Stack.Navigator
