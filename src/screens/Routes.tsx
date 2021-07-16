@@ -156,7 +156,7 @@ export const Routes: React.FC<RoutesProps> = ({}) => {
   }
 
   return (
-    <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <NavigationContainer theme={DarkTheme}>
       {loginState.userToken !== null ? <AppTabs /> : <AuthStack />}
     </NavigationContainer>
   );
