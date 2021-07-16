@@ -1,6 +1,5 @@
 import React from 'react';
 import {View} from 'react-native';
-import {ScreenHeight, ScreenWidth} from 'react-native-elements/dist/helpers';
 //fix update
 
 interface CenterProps {}
