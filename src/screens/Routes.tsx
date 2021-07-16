@@ -11,6 +11,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {AppTabs} from './AppTabs';
 import {AuthStack} from './AuthStack';
 import {Center} from '../components/center/Center';
+// is it fixed?
 
 // import {AuthContext} from './context';
 

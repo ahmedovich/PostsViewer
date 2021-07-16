@@ -3,7 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {Button, FlatList, Text, TouchableOpacity} from 'react-native';
 import {Center} from '../../../components/center/Center';
 
-import {AuthContext} from '../../login/components/AuthProvider';
+import {AuthContext} from '../../../screens/context';
 import {StyleSheet} from 'react-native';
 
 import faker from 'faker';

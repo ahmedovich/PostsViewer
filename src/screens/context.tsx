@@ -1,6 +1,11 @@
 import React from 'react';
 
-type userFound = null | {username: string; password: string};
+type userFound = null | {
+  username: string;
+  password: string;
+  token: string;
+  id: number;
+};
 
 export const AuthContext = React.createContext<{
   userFound: userFound;
