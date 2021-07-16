@@ -1,6 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
-//fix update
+//fix update?
 
 interface CenterProps {}
 
