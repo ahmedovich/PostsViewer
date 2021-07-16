@@ -4,8 +4,8 @@ import {ActivityIndicator} from 'react-native-paper';
 import {StyleSheet, FlatList, Text, TouchableOpacity, View} from 'react-native';
 import {ScreenWidth} from 'react-native-elements/dist/helpers';
 
-import {AuthContext} from '../screens/AuthProvider';
 import {Center} from '../components/center/Center';
+import {AuthContext} from './context';
 
 import {PostsParamList} from '../features/login/paramLists/PostsParamList';
 
