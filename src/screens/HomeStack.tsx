@@ -6,14 +6,6 @@ import {ScreenWidth} from 'react-native-elements/dist/helpers';
 
 import {Center} from '../components/center/Center';
 import {AuthContext} from './context';
-import {
-  SignUpButton,
-  PostContainer,
-  PostBox,
-  PostsText,
-  CommentBox,
-  CommentText,
-} from '../features/login/components/authentication.styles';
 
 import {PostsParamList} from '../features/login/paramLists/PostsParamList';
 
@@ -57,19 +49,20 @@ const Feed = () => {
 
   return (
     <Center>
-      <PostContainer
+      <FlatList
         data={data}
+        style={styles.postContainer}
         renderItem={({item}) => (
           <View>
-            <PostBox>
-              <PostsText>
+            <View key={item.id} style={styles.postBox}>
+              <Text style={styles.postsText}>
                 {item.title}
                 {':'}
-              </PostsText>
-              <CommentBox>
-                <CommentText>{item.body}</CommentText>
-              </CommentBox>
-            </PostBox>
+              </Text>
+              <View key={item.id} style={styles.commentBox}>
+                <Text style={styles.commentsText}>{item.body}</Text>
+              </View>
+            </View>
           </View>
         )}
       />
@@ -90,7 +83,7 @@ export const HomeStack: React.FC<HomeStackProps> = ({}) => {
                 onPress={() => {
                   logout();
                 }}>
-                <SignUpButton>LOGOUT</SignUpButton>
+                <Text style={styles.signUpButton}>LOGOUT</Text>
               </TouchableOpacity>
             );
           },
@@ -100,3 +93,38 @@ export const HomeStack: React.FC<HomeStackProps> = ({}) => {
     </Stack.Navigator>
   );
 };
+
+const styles = StyleSheet.create({
+  signUpButton: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#ff004c',
+  },
+  postContainer: {
+    width: ScreenWidth,
+    margin: 10,
+  },
+  postBox: {
+    margin: 7,
+    backgroundColor: '#303236',
+    padding: 5,
+    borderRadius: 5,
+  },
+  postsText: {
+    color: '#e8d3bb',
+    fontSize: 18,
+    fontFamily: 'bold',
+  },
+  commentBox: {
+    margin: 3,
+    backgroundColor: 'black',
+    padding: 5,
+    borderRadius: 5,
+    elevation: 15,
+  },
+  commentsText: {
+    color: 'white',
+    fontSize: 16,
+    fontStyle: 'italic',
+  },
+});
