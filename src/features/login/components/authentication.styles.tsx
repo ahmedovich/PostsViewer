@@ -1,9 +1,64 @@
 import styled from 'styled-components/native';
-import {Card} from 'react-native-paper';
+
+// Posts Components styles:
+export const PostContainer = styled.FlatList`
+  width: 100%;
+  margin-vertical: 10px;
+`;
+
+export const PostBox = styled.View`
+  margin-vertical: 7px;
+  background-color: #303236;
+  padding-horizontal: 7px;
+  border-radius: 5px;
+`;
+
+export const PostsText = styled.Text`
+  color: #e8d3bb;
+  font-size: 18px;
+  font-weight: bold;
+`;
+
+export const CommentBox = styled.View`
+  margin-vertical: 7px;
+  background-color: black;
+  padding-horizontal: 5px;
+  border-radius: 5px;
+`;
+
+export const CommentText = styled.Text`
+  color: white;
+  font-size: 16px;
+  font-style: italic;
+`;
+
+// Authentication Components styles:
+export const SignUpContainer = styled.View`
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  border-radius: 52px;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 50px;
+`;
+
+export const SignInContainer = styled.View`
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  border-radius: 52px;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 50px;
+`;
+
+export const InputsContainer = styled.View`
+  justify-content: center;
+  align-items: center;
+`;
 
 export const InputBox = styled.TextInput`
-<<<<<<< HEAD
-<<<<<<< HEAD
   width: 300px;
   background-color: #a9aaad;
   color: #434c5e;
@@ -11,13 +66,6 @@ export const InputBox = styled.TextInput`
   border-radius: 20px;
   margin-vertical: 10px;
   font-size: 16px;
-`;
-
-export const SaveLogin = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-vertical: 20px;
 `;
 
 export const CheckBoxView = styled.View`
@@ -36,16 +84,16 @@ export const CheckBox = styled.CheckBox`
 `;
 */
 
+export const CheckTextView = styled.View`
+  flex: 0.5;
+  justify-content: flex-end;
+`;
+
 export const CheckText = styled.Text`
   color: #c9c9ca;
   padding-left: 25px;
   font-size: 15px;
   font-weight: 500;
-`;
-
-export const CheckTextView = styled.View`
-  flex: 0.5;
-  justify-content: flex-end;
 `;
 
 export const ForgetText = styled.Text`
@@ -54,14 +102,25 @@ export const ForgetText = styled.Text`
   font-weight: 500;
 `;
 
+export const SaveLogin = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-vertical: 20px;
+`;
+
 export const ButtonContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
 `;
 
-export const SignUpButtonContainer = styled.View`
-  justify-content: center;
-  align-items: center;
+export const Button = styled.TouchableOpacity`
+  width: 50%;
+  height: 40px;
+  background-color: #2e3440;
+  border-radius: 20px;
+  font-size: 16px;
+  margin: 15px;
 `;
 
 export const ButtonText = styled.Text`
@@ -72,15 +131,7 @@ export const ButtonText = styled.Text`
   padding: 10px;
 `;
 
-export const ButtonTextRed = styled.Text`
-  font-size: 16px;
-  font-weight: 500;
-  color: #ff004c;
-  align-self: center;
-  padding: 10px;
-`;
-
-export const ButtonGray = styled.TouchableOpacity`
+export const ButtonVariant1 = styled.TouchableOpacity`
   width: 50%;
   height: 40px;
   background-color: #2e3440;
@@ -89,41 +140,30 @@ export const ButtonGray = styled.TouchableOpacity`
   margin: 15px;
 `;
 
-export const ButtonTransparent = styled.TouchableOpacity`
-  width: 100%;
-  height: 40px;
-  border-radius: 20px;
-  font-size: 16px;
-  margin: 15px;
-`;
-
-export const SignUpButton = styled.TouchableOpacity`
-  width: 80%;
+export const ButtonVariant2 = styled.TouchableOpacity`
+  width: 50%;
   height: 40px;
   background-color: #2e3440;
   border-radius: 20px;
   font-size: 16px;
   margin: 15px;
 `;
+export const SignUpView = styled.View`
+  justify-content: center;
+  align-items: center;
+`;
 
-export const SignUpQuestionText = styled.Text`
+export const SignUpText = styled.Text`
   justify-content: flex-start;
   color: #c9c9ca;
   font-size: 15px;
   font-weight: 500;
-=======
-=======
->>>>>>> parent of 2c37ba4 (Back to action)
-  width: 300;
-  background-color: '#a9aaad';
-  color: '#434c5e';
-  padding-horizontal: 16;
-  border-radius: 20;
-  elevation: 5;
-  margin-vertical: 10;
-  fontsize: 16;
-<<<<<<< HEAD
->>>>>>> parent of 2c37ba4 (Back to action)
-=======
->>>>>>> parent of 2c37ba4 (Back to action)
+`;
+
+export const SignUpButtonText = styled.Text`
+  font-size: 16px;
+  font-weight: 500;
+  color: #ff004c;
+  align-self: center;
+  padding: 10px;
 `;

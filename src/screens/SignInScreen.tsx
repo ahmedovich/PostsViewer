@@ -19,21 +19,6 @@ import {
 import Users from '../model/users';
 import {AuthContext} from './context';
 
-import {
-  SignInContainer,
-  InputsContainer,
-  InputBox,
-  CheckBoxView,
-  CheckTextView,
-  CheckText,
-  ForgetText,
-  SaveLogin,
-  ButtonContainer,
-  ButtonText,
-  ButtonGray,
-  ButtonTextRed,
-} from '../features/login/components/authentication.styles';
-
 const SignInScreen = ({navigation}) => {
   const [data, setData] = React.useState({
     username: '',
@@ -118,64 +103,156 @@ const SignInScreen = ({navigation}) => {
   };
 
   return (
-    <SignInContainer>
+    <View style={styles.container}>
       <Logo />
       <Center>
-        <InputsContainer>
-          <InputBox
+        <View>
+          <TextInput
+            style={styles.inputBox}
             placeholder="UserName"
             placeholderTextColor="#434c5e"
             autoCapitalize="none"
             onChangeText={val => textInputChange(val)}
             onEndEditing={e => handleValidUser(e.nativeEvent.text)}
           />
-          <InputBox
+          <TextInput
+            style={styles.inputBox}
             placeholder="Password"
             secureTextEntry={true}
             placeholderTextColor="#434c5e"
             onChangeText={val => handlePasswordChange(val)}
           />
-        </InputsContainer>
-        <SaveLogin>
-          <CheckBoxView>
+        </View>
+        <View style={styles.saveLogin}>
+          <View style={styles.checkBoxView}>
             <CheckBox onCheckColor="blue" style={styles.checkBox} />
-            <CheckText>Remember me</CheckText>
-          </CheckBoxView>
-          <CheckTextView>
+            <Text style={styles.checkText}>Remember me</Text>
+          </View>
+          <View style={styles.checkTextView}>
             <TouchableOpacity onPress={() => {}}>
-              <ForgetText>Forgot password?</ForgetText>
+              <Text style={styles.forgetText}>Forgot password?</Text>
             </TouchableOpacity>
-          </CheckTextView>
-        </SaveLogin>
-        <ButtonContainer>
-          <ButtonGray
+          </View>
+        </View>
+        <View style={styles.buttonsContainer}>
+          <TouchableOpacity
             onPress={() => {
               loginHandle(data.username, data.password);
-            }}>
-            <ButtonText>Sign in</ButtonText>
-          </ButtonGray>
-        </ButtonContainer>
-        <ButtonText>Don't you have an account?</ButtonText>
-        <ButtonContainer>
+            }}
+            style={styles.button}>
+            <Text style={styles.buttonText}>Sign in</Text>
+          </TouchableOpacity>
+        </View>
+        <Text style={styles.signUpText}>Don't you have an account?</Text>
+        <View style={styles.buttonsContainer}>
           <TouchableOpacity
             onPress={() => {
               navigation.navigate('SignUpScreen');
               // navigation.goBack()
             }}>
-            <ButtonTextRed>Sign Up</ButtonTextRed>
+            <Text style={styles.signUpButton}>Sign Up</Text>
           </TouchableOpacity>
-        </ButtonContainer>
+        </View>
       </Center>
-    </SignInContainer>
+    </View>
   );
 };
 
 export default SignInScreen;
 
 const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 10,
+    borderRadius: 52,
+    width: ScreenWidth / 1,
+    height: ScreenHeight / 2,
+    marginBottom: 50,
+  },
+
+  inputBox: {
+    width: 300,
+    backgroundColor: '#a9aaad',
+    color: '#434c5e',
+    paddingHorizontal: 16,
+    borderRadius: 20,
+    elevation: 5,
+    marginVertical: 10,
+    fontSize: 16,
+  },
+
+  saveLogin: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginVertical: 20,
+  },
+  checkBoxView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 0.7,
+    justifyContent: 'flex-start',
+    paddingLeft: 15,
+  },
   checkBox: {
     width: 10,
     height: 10,
     marginLeft: 10,
+  },
+  checkTextView: {
+    flex: 0.5,
+    justifyContent: 'flex-end',
+  },
+  checkText: {
+    color: '#c9c9ca',
+    paddingLeft: 25,
+    fontSize: 15,
+    fontWeight: '500',
+  },
+  forgetText: {
+    color: '#ff004c',
+    fontSize: 15,
+    fontWeight: '500',
+  },
+
+  buttonsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  button: {
+    width: '50%',
+    height: 40,
+    backgroundColor: '#2e3440',
+    borderRadius: 20,
+    elevation: 5,
+    fontSize: 16,
+    margin: 15,
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#c9c9ca',
+    alignSelf: 'center',
+    padding: 10,
+  },
+
+  signUpView: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  signUpText: {
+    justifyContent: 'flex-start',
+    color: '#c9c9ca',
+    fontSize: 15,
+    fontWeight: '500',
+  },
+  signUpButton: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#ff004c',
+    alignSelf: 'center',
+    padding: 10,
   },
 });
