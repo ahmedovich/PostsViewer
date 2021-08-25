@@ -1,10 +1,6 @@
-import React, {useState, useEffect, useContext} from 'react';
-import {
-  NavigationContainer,
-  DefaultTheme,
-  DarkTheme,
-} from '@react-navigation/native';
-import {useColorScheme, View} from 'react-native';
+import React, {useEffect} from 'react';
+import {NavigationContainer, DarkTheme} from '@react-navigation/native';
+import {useColorScheme} from 'react-native';
 import {ActivityIndicator} from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -56,8 +52,6 @@ type UserState = {
 };
 
 export const Routes: React.FC<RoutesProps> = ({}) => {
-  const scheme = useColorScheme();
-
   // const prevState = {
   //   userName: action.id,
   //   userToken: action.token,

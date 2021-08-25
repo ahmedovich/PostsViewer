@@ -1,13 +1,12 @@
 import React, {useContext} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {AppParamList} from '../features/login/paramLists/HomeParamList';
+import {AppParamList} from '../features/paramLists/HomeParamList';
 import {Text, Button, View} from 'react-native';
-// import {AuthContext} from './AuthProvider';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 // import Zocial from 'react-native-vector-icons/Zocial';
+// import {AuthContext} from './AuthProvider';
 
 import {HomeStack} from './HomeStack';
-import {StyleSheet} from 'react-native';
 import {AuthContext} from '../screens/context';
 
 interface AppTabsProps {}
@@ -58,12 +57,3 @@ export const AppTabs: React.FC<AppTabsProps> = ({}) => {
     </Tabs.Navigator>
   );
 };
-
-//Remove it later
-const styles = StyleSheet.create({
-  signUpButton: {
-    fontSize: 16,
-    fontWeight: '500',
-    color: '#ff004c',
-  },
-});

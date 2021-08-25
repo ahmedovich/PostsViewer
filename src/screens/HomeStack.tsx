@@ -1,8 +1,7 @@
 import React, {useContext, useState} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {ActivityIndicator} from 'react-native-paper';
-import {StyleSheet, FlatList, Text, TouchableOpacity, View} from 'react-native';
-import {ScreenWidth} from 'react-native-elements/dist/helpers';
+import {TouchableOpacity, View} from 'react-native';
 
 import {Center} from '../components/center/Center';
 import {AuthContext} from './context';
@@ -14,9 +13,9 @@ import {
   PostsText,
   CommentBox,
   CommentText,
-} from '../features/login/components/authentication.styles';
+} from '../features/login/components/appScreens.styles';
 
-import {PostsParamList} from '../features/login/paramLists/PostsParamList';
+import {PostsParamList} from '../features/paramLists/PostsParamList';
 
 interface HomeStackProps {}
 

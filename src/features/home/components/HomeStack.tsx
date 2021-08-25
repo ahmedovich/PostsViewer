@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Button, FlatList, Text, TouchableOpacity} from 'react-native';
 import {Center} from '../../../components/center/Center';

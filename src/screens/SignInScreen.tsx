@@ -1,21 +1,10 @@
 import React from 'react';
-import {
-  View,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-  Text,
-  Alert,
-} from 'react-native';
+import {StyleSheet, TouchableOpacity, Alert} from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
-import {ScreenHeight, ScreenWidth} from 'react-native-elements/dist/helpers';
 
 import {Logo} from '../components/logo/Logo';
 import {Center} from '../components/center/Center';
-import {
-  AuthParamList,
-  AuthNavProps,
-} from '../features/login/paramLists/AuthParamList';
+
 import Users from '../model/users';
 import {AuthContext} from './context';
 
@@ -32,7 +21,7 @@ import {
   ButtonText,
   ButtonGray,
   ButtonTextRed,
-} from '../features/login/components/authentication.styles';
+} from '../features/login/components/appScreens.styles';
 
 const SignInScreen = ({navigation}) => {
   const [data, setData] = React.useState({

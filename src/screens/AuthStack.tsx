@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import {AuthParamList} from '../features/login/paramLists/AuthParamList';
+import {AuthParamList} from '../features/paramLists/AuthParamList';
 import SignInScreen from './SignInScreen';
 import SignUpScreen from './SignUpScreen';
 

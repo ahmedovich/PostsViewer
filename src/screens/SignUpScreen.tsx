@@ -1,19 +1,7 @@
 import React from 'react';
-import {
-  View,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-  Text,
-} from 'react-native';
-import {ScreenHeight, ScreenWidth} from 'react-native-elements/dist/helpers';
 
 import {Logo} from '../components/logo/Logo';
 import {Center} from '../components/center/Center';
-import {
-  AuthParamList,
-  AuthNavProps,
-} from '../features/login/paramLists/AuthParamList';
 
 import {
   SignUpContainer,
@@ -26,7 +14,7 @@ import {
   SignUpButtonContainer,
   ButtonTextRed,
   SignUpQuestionText,
-} from '../features/login/components/authentication.styles';
+} from '../features/login/components/appScreens.styles';
 
 const SignUpScreen = ({navigation}) => {
   const [data, setData] = React.useState({
