@@ -1,9 +1,65 @@
 import styled from 'styled-components/native';
 import {Card} from 'react-native-paper';
 
+// Posts Components styles:
+export const PostContainer = styled.FlatList`
+  width: 100%;
+  margin-vertical: 10px;
+`;
+
+export const PostBox = styled.View`
+  margin-vertical: 7px;
+  background-color: #303236;
+  padding-horizontal: 7px;
+  border-radius: 5px;
+`;
+
+export const PostsText = styled.Text`
+  color: #e8d3bb;
+  font-size: 18px;
+  font-weight: bold;
+`;
+
+export const CommentBox = styled.View`
+  margin-vertical: 7px;
+  background-color: black;
+  padding-horizontal: 5px;
+  border-radius: 5px;
+`;
+
+export const CommentText = styled.Text`
+  color: white;
+  font-size: 16px;
+  font-style: italic;
+`;
+
+// Authentication Components styles:
+export const SignUpContainer = styled.View`
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  border-radius: 52px;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 50px;
+`;
+
+export const SignInContainer = styled.View`
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  border-radius: 52px;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 50px;
+`;
+
+export const InputsContainer = styled.View`
+  justify-content: center;
+  align-items: center;
+`;
+
 export const InputBox = styled.TextInput`
-<<<<<<< HEAD
-<<<<<<< HEAD
   width: 300px;
   background-color: #a9aaad;
   color: #434c5e;
